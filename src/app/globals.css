@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0E7C86;
+  --color-primary-deep: #0A5F67;
+  --color-primary-soft: #EAF5F5;
+  --color-primary-50: #F0FAFB;
+  --color-primary-100: #D6F1F3;
+  --color-primary-200: #ADE3E7;
+  --color-primary-300: #7ACDD4;
+  --color-primary-400: #3EADB8;
+  --color-primary-500: #0E7C86;
+  --color-primary-600: #0A6A73;
+  --color-primary-700: #0A5F67;
+  --color-primary-800: #0C4D54;
+  --color-primary-900: #0E4148;
+
+  --color-coral: #E8846B;
+  --color-coral-soft: #FCEBE6;
+  --color-mint: #7FC8B8;
+  --color-mint-soft: #EAF7F3;
+  --color-amber: #F0B860;
+  --color-amber-soft: #FDF3E2;
+
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F0F6F6;
+  --color-background: #F7FAFA;
+  --color-border: #E0EAEB;
+  --color-text-primary: #2C3539;
+  --color-text-muted: #7A8B8E;
+
+  --font-sans: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+
+  --shadow-card: 0 1px 8px rgba(14, 124, 134, 0.07);
+  --shadow-card-hover: 0 8px 30px rgba(14, 124, 134, 0.12);
+  --shadow-hero: 0 25px 60px rgba(14, 124, 134, 0.15);
+  --shadow-glow: 0 0 40px rgba(14, 124, 134, 0.2);
+
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-fade-in-up: fadeInUp 0.7s ease-out forwards;
+  --animate-slide-in-left: slideInLeft 0.7s ease-out forwards;
+  --animate-slide-in-right: slideInRight 0.7s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* ── Base Styles ─────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection ─────────────────────────────── */
+::selection {
+  background: rgba(14, 124, 134, 0.15);
+  color: #0A5F67;
+}
+
+/* ── Focus ring ─────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Smooth scroll for reduced-motion users ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Scroll-triggered animation helpers ──────── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Gradient text helper ────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #0E7C86 0%, #0A5F67 50%, #7FC8B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
