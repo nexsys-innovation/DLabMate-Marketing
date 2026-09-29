@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -46,7 +45,7 @@ export default async function PricingPage() {
 
             {/* Plans Grid */}
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-              {plans.map((plan, idx) => (
+              {plans.map((plan) => (
                 <div
                   key={plan.code}
                   className={`relative rounded-2xl border bg-white p-8 flex flex-col justify-between transition-all hover:shadow-card-hover ${

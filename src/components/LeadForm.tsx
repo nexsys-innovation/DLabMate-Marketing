@@ -98,7 +98,7 @@ export default function LeadForm({ formType = 'demo', className = '' }: LeadForm
         }),
       });
 
-      let data: any = {};
+      let data: { success?: boolean; message?: string } = {};
       try {
         data = await res.json();
       } catch (jsonErr) {
@@ -112,9 +112,10 @@ export default function LeadForm({ formType = 'demo', className = '' }: LeadForm
         setApiErrorMessage(data.message || 'Server error occurred during submission.');
         setStatus('error');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Lead submission fetch failed:', err);
-      setApiErrorMessage(err.message || 'Network error connecting to backend.');
+      const message = err instanceof Error ? err.message : 'Network error connecting to backend.';
+      setApiErrorMessage(message);
       setStatus('error');
     }
   };

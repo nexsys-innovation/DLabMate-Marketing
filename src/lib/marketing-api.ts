@@ -25,7 +25,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001'
 export async function fetchPublicSiteSettings(): Promise<PublicSiteSettings> {
   try {
     const res = await fetch(`${API_BASE}/api/marketing/site`, {
-      cache: 'no-store',
+      next: { revalidate: 60 },
     });
     const json = await res.json();
     if (res.ok && json.success && json.data) {
@@ -55,7 +55,7 @@ export async function fetchPublicFaqs(category?: string): Promise<PublicFaq[]> {
     if (category) url.searchParams.set('category', category);
 
     const res = await fetch(url.toString(), {
-      cache: 'no-store',
+      next: { revalidate: 60 },
     });
     const json = await res.json();
     if (res.ok && json.success && Array.isArray(json.data)) {
@@ -172,7 +172,7 @@ export async function fetchPublicCatalog(): Promise<PublicCatalog> {
 
   for (const url of endpoints) {
     try {
-      const res = await fetch(url, { cache: 'no-store' });
+      const res = await fetch(url, { next: { revalidate: 60 } });
       if (res.ok) {
         const json = await res.json();
         if (json.success && json.catalog && Array.isArray(json.catalog.plans) && json.catalog.plans.length > 0) {
@@ -193,13 +193,13 @@ export interface PublicPage {
   title: string;
   metaDescription: string;
   contentMarkdown?: string;
-  sections: Record<string, any>;
+  sections: Record<string, string>;
 }
 
 export async function fetchPublicPageBySlug(slug: string): Promise<PublicPage | null> {
   try {
     const res = await fetch(`${API_BASE}/api/marketing/pages/${slug}`, {
-      cache: 'no-store',
+      next: { revalidate: 60 },
     });
     const json = await res.json();
     if (res.ok && json.success && json.data) {
