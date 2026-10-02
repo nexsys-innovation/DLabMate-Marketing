@@ -36,19 +36,17 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group" aria-label="DLabMate Home">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center group-hover:shadow-glow transition-shadow duration-300">
+        <Link href="/" className="flex items-center group" aria-label="DLabMate Home">
+          <div className="flex items-center justify-center transition-shadow duration-300">
             <Image
               src="/brand/dlabmate_logo.png"
               alt="DLabMate"
-              width={28}
-              height={28}
-              className="object-contain"
+              width={200}
+              height={200}
+              className="object-cover object-center h-10 w-40 sm:h-12 sm:w-48"
+              priority
             />
           </div>
-          <span className="text-xl font-extrabold text-text-primary tracking-tight">
-            DLab<span className="text-primary">Mate</span>
-          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -115,9 +113,15 @@ export default function Header() {
           <div className="fixed top-0 right-0 bottom-0 w-[min(320px,85vw)] bg-white z-50 lg:hidden shadow-[-10px_0_40px_rgba(14,124,134,0.1)] animate-slide-in-right">
             <div className="p-6 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">
-                <span className="text-lg font-extrabold text-text-primary">
-                  DLab<span className="text-primary">Mate</span>
-                </span>
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/brand/dlabmate_logo.png"
+                    alt="DLabMate"
+                    width={160}
+                    height={160}
+                    className="object-cover object-center h-10 w-40"
+                  />
+                </div>
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="w-9 h-9 rounded-lg bg-surface-alt flex items-center justify-center text-text-muted hover:text-primary transition-colors"

@@ -12,19 +12,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+            <Link href="/" className="inline-flex items-center mb-5">
+              <div className="flex items-center justify-center">
                 <Image
                   src="/brand/dlabmate_logo.png"
                   alt="DLabMate"
-                  width={26}
-                  height={26}
-                  className="object-contain brightness-0 invert"
+                  width={200}
+                  height={200}
+                  className="object-cover object-center h-10 w-40 sm:h-12 sm:w-48 brightness-0 invert"
                 />
               </div>
-              <span className="text-xl font-extrabold text-white tracking-tight">
-                DLab<span className="text-primary-300">Mate</span>
-              </span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-6">
               Dental lab case management and lab–clinic coordination software built for Nepal&apos;s dental industry.

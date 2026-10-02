@@ -25,8 +25,8 @@ export const metadata: Metadata = {
       'Organize dental lab cases, track production and delivery, and keep partner clinics informed with DLabMate.',
   },
   icons: {
-    icon: '/brand/dlabmate_logo.png',
-    apple: '/brand/dlabmate_logo.png',
+    icon: '/logo_mini.png',
+    apple: '/logo_mini.png',
   },
 };
 
