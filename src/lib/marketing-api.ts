@@ -77,6 +77,7 @@ export interface PublicPlan {
   monthlyPricePaisa: number;
   monthlyPriceNpr: number;
   monthlyIncludedCredits: number;
+  isUnlimited?: boolean;
   billingIntervalMonths: number;
   displayOrder: number;
 }
@@ -132,6 +133,7 @@ const DEFAULT_FALLBACK_CATALOG: PublicCatalog = {
       monthlyPricePaisa: 99900,
       monthlyPriceNpr: 999,
       monthlyIncludedCredits: 150,
+      isUnlimited: false,
       billingIntervalMonths: 1,
       displayOrder: 1,
     },
@@ -145,6 +147,7 @@ const DEFAULT_FALLBACK_CATALOG: PublicCatalog = {
       monthlyPricePaisa: 189900,
       monthlyPriceNpr: 1899,
       monthlyIncludedCredits: 300,
+      isUnlimited: false,
       billingIntervalMonths: 1,
       displayOrder: 2,
     },
@@ -158,6 +161,7 @@ const DEFAULT_FALLBACK_CATALOG: PublicCatalog = {
       monthlyPricePaisa: 359900,
       monthlyPriceNpr: 3599,
       monthlyIncludedCredits: 600,
+      isUnlimited: true,
       billingIntervalMonths: 1,
       displayOrder: 3,
     },

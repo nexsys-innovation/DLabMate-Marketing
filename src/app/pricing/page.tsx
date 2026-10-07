@@ -68,14 +68,14 @@ export default async function PricingPage() {
                       </span>
                       <span className="text-sm text-text-muted ml-1">/ month</span>
                       <div className="mt-2 text-xs font-bold text-primary">
-                        Includes {plan.monthlyIncludedCredits} Cases / Month
+                        Includes {plan.isUnlimited ? "Unlimited" : plan.monthlyIncludedCredits} Cases / Month
                       </div>
                     </div>
 
                     <ul className="space-y-3 mb-8">
                       <li className="flex items-center gap-2.5 text-sm text-text-primary/80">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7C86" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        {plan.monthlyIncludedCredits} Included Cases Monthly
+                        {plan.isUnlimited ? "Unlimited" : plan.monthlyIncludedCredits} Included Cases Monthly
                       </li>
                       <li className="flex items-center gap-2.5 text-sm text-text-primary/80">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7C86" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
