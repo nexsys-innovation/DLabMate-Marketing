@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig } from '@/lib/site-config';
+import { fetchPublicSiteSettings } from '@/lib/marketing-api';
 
-export default function Footer() {
+export default async function Footer() {
   const currentYear = new Date().getFullYear();
+  const siteSettings = await fetchPublicSiteSettings();
+
 
   return (
     <footer className="bg-[#0C2D32] text-white/80">
@@ -29,21 +32,21 @@ export default function Footer() {
             {/* Contact details */}
             <div className="flex flex-col gap-2.5">
               <a
-                href={`mailto:${siteConfig.contact.generalEmail}`}
+                href={`mailto:${siteSettings?.infoEmail || siteConfig.contact.generalEmail}`}
                 className="text-sm text-white/60 hover:text-primary-300 transition-colors inline-flex items-center gap-2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                {siteConfig.contact.generalEmail}
+                {siteSettings?.infoEmail || siteConfig.contact.generalEmail}
               </a>
               <a
-                href={siteConfig.contact.phoneLink}
+                href={`tel:${(siteSettings?.phone || siteConfig.contact.phone).replace(/\s+/g, '')}`}
                 className="text-sm text-white/60 hover:text-primary-300 transition-colors inline-flex items-center gap-2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                {siteConfig.contact.phone}
+                {siteSettings?.phone || siteConfig.contact.phone}
               </a>
               <a
-                href={siteConfig.contact.whatsappLink}
+                href={`https://wa.me/${(siteSettings?.whatsappNumber || '9779709074008').replace(/\s+/g, '')}`}
                 className="text-sm text-white/60 hover:text-primary-300 transition-colors inline-flex items-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"

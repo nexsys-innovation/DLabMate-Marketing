@@ -39,7 +39,7 @@ export async function fetchPublicSiteSettings(): Promise<PublicSiteSettings> {
     supportEmail: siteConfig.contact.supportEmail,
     infoEmail: siteConfig.contact.generalEmail,
     phone: siteConfig.contact.phone,
-    whatsappNumber: '9779843631160',
+    whatsappNumber: '9779709074008',
     whatsappText: 'Hello DLabMate, I would like to learn more about the platform.',
     heroHeadline: 'Keep your dental lab cases and clinic partners in sync.',
     heroSubheadline:

@@ -1,11 +1,15 @@
-'use client';
-
 import { siteConfig } from '@/lib/site-config';
+import { fetchPublicSiteSettings } from '@/lib/marketing-api';
 
-export default function WhatsAppButton() {
+export default async function WhatsAppButton() {
+  const siteSettings = await fetchPublicSiteSettings();
+  const waNumber = siteSettings?.whatsappNumber || '9779709074008';
+  const waText = siteSettings?.whatsappText ? encodeURIComponent(siteSettings.whatsappText) : 'Hello%20DLabMate%2C%20I%20would%20like%20a%20demo.';
+  const href = `https://wa.me/${waNumber.replace(/\s+/g, '')}?text=${waText}`;
+
   return (
     <a
-      href={siteConfig.contact.whatsappDemoLink}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-40 group"

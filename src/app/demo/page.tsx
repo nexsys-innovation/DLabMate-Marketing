@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import LeadForm from '@/components/LeadForm';
 import { siteConfig } from '@/lib/site-config';
+import { fetchPublicSiteSettings } from '@/lib/marketing-api';
 
 export const metadata: Metadata = {
   title: 'Request a Demo',
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
     'Request a personalized DLabMate demo to see how it helps organize dental lab cases, track production, and coordinate with partner clinics.',
 };
 
-export default function DemoPage() {
+export default async function DemoPage() {
+  const siteSettings = await fetchPublicSiteSettings();
+  const phone = siteSettings?.phone || siteConfig.contact.phone;
+  const whatsappNumber = siteSettings?.whatsappNumber || '9779709074008';
+  const whatsappText = siteSettings?.whatsappText ? encodeURIComponent(siteSettings.whatsappText) : 'Hello%20DLabMate%2C%20I%20would%20like%20a%20demo.';
+  const whatsappDemoLink = `https://wa.me/${whatsappNumber.replace(/\s+/g, '')}?text=${whatsappText}`;
+
   return (
     <>
       <Header />
@@ -62,7 +69,7 @@ export default function DemoPage() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href={siteConfig.contact.whatsappDemoLink}
+                    href={whatsappDemoLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#25D366] text-white text-sm font-semibold rounded-xl hover:bg-[#1fb855] transition-all shadow-sm"
@@ -71,11 +78,11 @@ export default function DemoPage() {
                     WhatsApp
                   </a>
                   <a
-                    href={siteConfig.contact.phoneLink}
+                    href={`tel:${phone.replace(/\s+/g, '')}`}
                     className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-border text-text-primary text-sm font-semibold rounded-xl hover:border-primary/20 hover:bg-primary-soft/50 transition-all"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    {siteConfig.contact.phone}
+                    {phone}
                   </a>
                 </div>
               </div>

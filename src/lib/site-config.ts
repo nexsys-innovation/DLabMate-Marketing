@@ -14,11 +14,11 @@ export const siteConfig = {
   contact: {
     supportEmail: 'support@dlabmate.com',
     generalEmail: 'info@dlabmate.com',
-    phone: '+977 9843631160',
-    phoneLink: 'tel:+9779843631160',
-    whatsappLink: 'https://wa.me/9779843631160',
+    phone: '+977 9709074008',
+    phoneLink: 'tel:+9779709074008',
+    whatsappLink: 'https://wa.me/9779709074008',
     whatsappDemoLink:
-      'https://wa.me/9779843631160?text=Hello%20DLabMate%2C%20I%20would%20like%20a%20demo.',
+      'https://wa.me/9779709074008?text=Hello%20DLabMate%2C%20I%20would%20like%20a%20demo.',
   },
 
   // Navigation links
