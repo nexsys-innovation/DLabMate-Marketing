@@ -15,6 +15,29 @@ export const metadata: Metadata = {
 
 const allFeatures = [
   {
+    category: 'AI Guidance & Co-Pilot (New)',
+    items: [
+      {
+        title: 'One-Click AI Case Guidance',
+        description: 'Instant technical summary: breakdowns of FDI tooth numbers, materials, shades, and proactive alerts for tight deadlines or remake reasons.',
+        accent: '#1E40AF',
+        icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>,
+      },
+      {
+        title: 'Conversational Lab Assistant',
+        description: 'Ask questions in natural English: "What cases are delayed today?" or "Summarize Dr. Sharma\'s pending crowns" and get live data answers.',
+        accent: '#0E7C86',
+        icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+      },
+      {
+        title: 'Automated Doctor Communications',
+        description: 'Draft polite, professional messages for margin clarifications, impression re-scans, and delivery notifications in seconds.',
+        accent: '#F0B860',
+        icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M19 16v6"/><path d="M16 19h6"/></svg>,
+      },
+    ],
+  },
+  {
     category: 'Case Management',
     items: [
       {
