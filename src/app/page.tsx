@@ -40,9 +40,24 @@ const icons = {
       <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
     </svg>
   ),
+  sparkles: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+    </svg>
+  ),
 };
 
 const features = [
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+      </svg>
+    ),
+    title: 'AI Guidance & Co-Pilot',
+    description: 'Instant technical prescription summaries, proactive deadline risk flags, and live natural-language case lookups.',
+    accent: '#1E40AF',
+  },
   {
     icon: icons.clipboard,
     title: 'Case Intake & Details',
@@ -127,11 +142,18 @@ export default async function HomePage() {
                 </div>
               )}
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary/12 rounded-full shadow-sm mb-6">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
-                <span className="text-xs font-bold text-primary uppercase tracking-wider">
-                  Dental Lab Management Software
-                </span>
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary/12 rounded-full shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
+                  <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                    Dental Lab Management Software
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/20 rounded-full shadow-sm">
+                  <span className="text-xs font-bold text-blue-700">
+                    ✨ Built-in AI Guidance
+                  </span>
+                </div>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold text-text-primary leading-[1.1] tracking-tight mb-6">

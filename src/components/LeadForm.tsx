@@ -289,6 +289,7 @@ export default function LeadForm({ formType = 'demo', className = '' }: LeadForm
           >
             <option value="general">General Enquiry</option>
             <option value="demo">Demo Request</option>
+            <option value="ai_demo">AI Guidance & Co-Pilot Demo</option>
             <option value="pricing">Pricing</option>
             <option value="support">Support</option>
           </select>
